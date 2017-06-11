@@ -7,6 +7,8 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
     "susy": "^2.2.12"
   },
   "devDependencies": {

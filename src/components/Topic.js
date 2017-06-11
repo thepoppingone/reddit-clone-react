@@ -6,7 +6,8 @@ export default class Topic extends Component {
 
     this.state = {
       id: props.key,
-      upvotes: 0,
+      upvotes: props.topic.upvotes,
+      content: props.topic.content,
     };
   }
 
@@ -19,8 +20,7 @@ export default class Topic extends Component {
   }
 
   render(){
-    const {upvotes, id} = this.state;
-    const {content} = this.props;
+    const {upvotes, id, content} = this.state;
 
     return (
       <div className='topic'>
