@@ -21,7 +21,6 @@ class TopicList extends Component {
       });
 
       return sortedTopics.map((t,i) => {
-        console.log("with length: ",t);
         return (
           <div key={i}>
             <Topic key={t.key} topic={t} upvoteAction={(topic) => this.props.upvoteTopic(topic)} downvoteAction={(topic) => this.props.downvoteTopic(topic)}/>

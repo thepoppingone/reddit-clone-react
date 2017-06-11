@@ -4,8 +4,6 @@ const NEW_TOPIC = 'NEW_TOPIC';
 
 export default function(state = null, action){
 
-  const update = (state, mutations) => Object.assign({}, state, mutations);
-
   if (state === null){
     return [
       { id: 1, content: 'topic 1', upvotes:0},
@@ -32,7 +30,6 @@ export default function(state = null, action){
           }
           return topic;
         })
-        break;
       case TOPIC_DOWNVOTED:
         return state.map((topic, index) => {
           if (index === updateIndex) {
@@ -43,7 +40,6 @@ export default function(state = null, action){
           }
           return topic;
         })
-        break;
       case NEW_TOPIC:
         let newState = state.slice(0);
         newState.push(action.payload);
