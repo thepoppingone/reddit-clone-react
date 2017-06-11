@@ -20,13 +20,11 @@ class TopicList extends Component {
         return parseFloat(b.upvotes) - parseFloat(a.upvotes);
       });
 
-      console.log(sortedTopics);
-
       return sortedTopics.map((t,i) => {
         console.log("with length: ",t);
         return (
           <div key={i}>
-            <Topic key={t.key} topic={t} upvoteAction={(newTopic) => this.props.upvoteTopic(newTopic)} downvoteAction={(newTopic) => this.props.downvoteTopic(newTopic)}/>
+            <Topic key={t.key} topic={t} upvoteAction={(topic) => this.props.upvoteTopic(topic)} downvoteAction={(topic) => this.props.downvoteTopic(topic)}/>
           </div>
         )
       });
@@ -47,7 +45,6 @@ class TopicList extends Component {
 
 function mapStateToProps(state){
   // Returns the items to the props
-  console.log('hahah',state);
   return {
     topics: state.topics,
   };
@@ -60,4 +57,4 @@ function mapDispatchToProps(dispatch){
    }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicList)
+export default connect(mapStateToProps, mapDispatchToProps)(TopicList);

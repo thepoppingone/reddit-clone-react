@@ -6,26 +6,70 @@
 
 .list{
   @include container(1080px);
-  background-color: #ababab;
+  background-color: #ebebeb;
+  border-radius: 4px;
 }
+
+.create-button{
+  display: inline-block;
+  text-align: right;
+  border-radius: 2px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  padding: 6px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.add-button{
+  border-radius: 2px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  padding: 6px 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.cancel-button{
+  border-radius: 2px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  padding: 6px 10px;
+}
+
 
 .topic{
   @include container(100%);
   padding: 10px 0px 10px 0px;
+
 
   .upvotes{
     @include span(2 of 12 first);
   }
 
   .content{
-    @include span(8 of 12);
+    @include span(7 of 12);
   }
 
   button.up{
-    @include span(1 of 12);
+    @include span(1.5 of 12);
+    border-radius: 2px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 10px;
   }
 
   button.down{
-    @include span(1 of 12 last);
+    @include span(1.5 of 12 last);
+    border-radius: 2px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    padding: 6px 10px;
   }
+
 }

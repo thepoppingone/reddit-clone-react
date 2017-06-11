@@ -5,11 +5,39 @@
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #ababab; }
+  background-color: #ebebeb;
+  border-radius: 4px; }
   .list:after {
     content: " ";
     display: block;
     clear: both; }
+
+.create-button {
+  display: inline-block;
+  text-align: right;
+  border-radius: 2px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  padding: 6px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.add-button {
+  border-radius: 2px;
+  border: none;
+  background-color: #008CBA;
+  color: white;
+  padding: 6px 10px;
+  margin-right: 10px;
+  margin-left: 10px; }
+
+.cancel-button {
+  border-radius: 2px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  padding: 6px 10px; }
 
 .topic {
   max-width: 100%;
@@ -25,14 +53,24 @@
     float: left;
     margin-right: 1.69492%; }
   .topic .content {
-    width: 66.10169%;
+    width: 57.62712%;
     float: left;
     margin-right: 1.69492%; }
   .topic button.up {
-    width: 6.77966%;
+    width: 11.01695%;
     float: left;
-    margin-right: 1.69492%; }
+    margin-right: 1.69492%;
+    border-radius: 2px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 10px; }
   .topic button.down {
-    width: 6.77966%;
+    width: 11.01695%;
     float: right;
-    margin-right: 0; }
+    margin-right: 0;
+    border-radius: 2px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    padding: 6px 10px; }

@@ -1,34 +1,19 @@
 import React, { Component } from 'react';
 
 export default class Topic extends Component {
-  constructor(props) {
-    super(props);
-
-    // this.state = {
-    //   key: props.key,
-    //   topic: props.topic,
-    // };
-  }
 
   upvote(){
     const { topic } = this.props;
-    let updatedTopic = Object.assign({}, topic);
-    updatedTopic.upvotes += 1;
-
-    this.props.upvoteAction(updatedTopic);
+    this.props.upvoteAction(topic);
   }
 
   downvote(){
     const { topic } = this.props;
-    let updatedTopic = Object.assign({}, topic);
-    updatedTopic.upvotes -= 1;
-
-    this.props.downvoteAction(updatedTopic);
+    this.props.downvoteAction(topic);
   }
 
   render(){
-    const {key, topic} = this.props;
-    console.log(topic);
+    const {topic} = this.props;
     return (
       <div className='topic'>
         <div className='upvotes'> Votes: {topic.upvotes}</div>
