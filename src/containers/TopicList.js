@@ -15,7 +15,14 @@ class TopicList extends Component {
 
   renderList(){
     if (this.props.topics.length){
-      return this.props.topics.map((t,i) => {
+
+      const sortedTopics = this.props.topics.slice(0).sort(function(a, b) {
+        return parseFloat(b.upvotes) - parseFloat(a.upvotes);
+      });
+
+      console.log(sortedTopics);
+
+      return sortedTopics.map((t,i) => {
         console.log("with length: ",t);
         return (
           <div key={i}>
