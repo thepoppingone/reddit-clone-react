@@ -4,23 +4,28 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.list{
+  @include container(1080px);
+  background-color: #ababab;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.topic{
+  @include container(100%);
+  padding: 10px 0px 10px 0px;
 
-.App-intro {
-  font-size: large;
-}
+  .upvotes{
+    @include span(2 of 12 first);
+  }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  .content{
+    @include span(8 of 12);
+  }
+
+  button.up{
+    @include span(1 of 12);
+  }
+
+  button.down{
+    @include span(1 of 12 last);
+  }
 }
