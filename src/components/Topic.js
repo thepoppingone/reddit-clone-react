@@ -4,30 +4,37 @@ export default class Topic extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      id: props.key,
-      upvotes: props.topic.upvotes,
-      content: props.topic.content,
-    };
+    // this.state = {
+    //   key: props.key,
+    //   topic: props.topic,
+    // };
   }
 
-  upvote(id){
-    console.log('up');
+  upvote(){
+    const { topic } = this.props;
+    let updatedTopic = Object.assign({}, topic);
+    updatedTopic.upvotes += 1;
+
+    this.props.upvoteAction(updatedTopic);
   }
 
-  downvote(id){
-    console.log('down');
+  downvote(){
+    const { topic } = this.props;
+    let updatedTopic = Object.assign({}, topic);
+    updatedTopic.upvotes -= 1;
+
+    this.props.downvoteAction(updatedTopic);
   }
 
   render(){
-    const {upvotes, id, content} = this.state;
-
+    const {key, topic} = this.props;
+    console.log(topic);
     return (
       <div className='topic'>
-        <div className='upvotes'> Votes: {upvotes}</div>
-        <div className='content'>{content}</div>
-        <button onClick={this.upvote.bind(this, id)} className='up'> Upvote</button>
-        <button onClick={this.downvote.bind(this, id)} className='down'> Downvote</button>
+        <div className='upvotes'> Votes: {topic.upvotes}</div>
+        <div className='content'>{topic.content}</div>
+        <button onClick={this.upvote.bind(this)} className='up'> Upvote</button>
+        <button onClick={this.downvote.bind(this)} className='down'> Downvote</button>
       </div>
     );
   }

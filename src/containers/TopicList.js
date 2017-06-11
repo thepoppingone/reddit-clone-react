@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Topic from './../components/Topic';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { upvoteTopic, downvoteTopic } from '../actions/index';
 
 class TopicList extends Component {
   constructor(props) {
@@ -12,42 +14,25 @@ class TopicList extends Component {
   }
 
   renderList(){
-
-    if (this.props.topics !== undefined){
-      return this.props.topics.map((topic,i) => {
+    if (this.props.topics.length){
+      return this.props.topics.map((t,i) => {
+        console.log("with length: ",t);
         return (
-          <li key={i}>{topic.content}</li>
+          <div key={i}>
+            <Topic key={t.key} topic={t} upvoteAction={(newTopic) => this.props.upvoteTopic(newTopic)} downvoteAction={(newTopic) => this.props.downvoteTopic(newTopic)}/>
+          </div>
         )
       });
     }else{
-        console.log(this.props.topics);
+        console.log("no length",this.props.topics);
     }
   }
 
   render(){
-    // const {topicList} = this.state;
-    // console.log(topicList);
-    //
-    //
-    // if (topicList.length){
-    //   const topics = topicList.map((t, i) => (
-    //       <div key={i}>
-    //         {/* <Topic key={t.key} topic={t}/> */}
-    //         <div>test</div>
-    //       </div>
-    //     )
-    //   );
-    //
-    //   return topics;
-    // }else {
-    //   return (
-    //     <div> Not loaded yet</div>
-    //   );
-    // }
     return (
-      <ul>
+      <div>
         {this.renderList()}
-      </ul>
+      </div>
     )
   }
 
@@ -55,9 +40,17 @@ class TopicList extends Component {
 
 function mapStateToProps(state){
   // Returns the items to the props
+  console.log('hahah',state);
   return {
     topics: state.topics,
   };
 }
 
-export default connect(mapStateToProps)(TopicList)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    upvoteTopic: upvoteTopic,
+    downvoteTopic: downvoteTopic,
+   }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopicList)
