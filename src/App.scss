@@ -40,6 +40,15 @@
   padding: 6px 10px;
 }
 
+.header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 150%;
+}
+
+.votes{
+  font-weight: bold;
+}
 
 .topic{
   @include container(100%);

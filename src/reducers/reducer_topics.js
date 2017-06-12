@@ -6,13 +6,24 @@ export default function(state = null, action){
 
   if (state === null){
     return [
-      { id: 1, content: 'topic 1', upvotes:0},
-      { id: 2, content: 'HK', upvotes:0},
+      { id: 1, content: 'Hong Kong Typhoon', upvotes:0},
+      { id: 2, content: 'SG Uber vs Grap', upvotes:0},
       { id: 3, content: 'SG', upvotes:0},
       { id: 4, content: 'TW', upvotes:0},
       { id: 5, content: 'SK', upvotes:0},
       { id: 6, content: 'Long content is that right?', upvotes:0},
       { id: 7, content: 'Short ', upvotes:0},
+      { id: 8, content: 'Such time is long', upvotes:0},
+      { id: 9, content: 'Lorem lipsum', upvotes:0},
+      { id: 10, content: 'Lorum Dipsum', upvotes:0},
+      { id: 11, content: 'tttttttttt', upvotes:0},
+      { id: 12, content: 'Second hand items', upvotes:0},
+      { id: 13, content: 'Microshops!', upvotes:0},
+      { id: 14, content: 'helllllllooooo ', upvotes:0},
+      { id: 15, content: 'with much testing', upvotes:0},
+      { id: 16, content: 'some of us are here for a long time!', upvotes:0},
+      { id: 17, content: 'Ok sure no problem', upvotes:0},
+      { id: 18, content: 'eeeeeeelllllllooooo', upvotes:0},
     ];
   }else{
 

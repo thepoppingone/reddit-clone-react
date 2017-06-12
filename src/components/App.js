@@ -18,10 +18,6 @@ export class App extends Component {
     };
   }
 
-  componentDidMount(){
-
-  }
-
   toggleCreateModal(){
     this.setState({
       isCreatingTopic: !this.state.isCreatingTopic,
@@ -72,10 +68,10 @@ export class App extends Component {
 
     return (
       <div className="App">
-        <div className='header'> Reddit Sample </div>
+        <div className='header'> Reddit Top 20 [Default user: user1] </div>
         { isCreatingTopic ?
           <div>
-            <input placeholder='Enter new topic content' onKeyPress={this.handleKeyPress.bind(this, input)} value={input} onChange={this.handleChange.bind(this)}/>
+            <input autoFocus placeholder='Enter new topic content' onKeyPress={this.handleKeyPress.bind(this, input)} value={input} onChange={this.handleChange.bind(this)}/>
             <button className='add-button' onClick={this.createTopic.bind(this, input)}> Add Topic </button>
             <button className='cancel-button' onClick={this.toggleCreateModal.bind(this)}> Cancel Topic </button>
 

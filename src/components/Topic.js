@@ -13,10 +13,10 @@ export default class Topic extends Component {
   }
 
   render(){
-    const {topic} = this.props;
+    const {topic, index} = this.props;
     return (
       <div className='topic'>
-        <div className='upvotes'> Votes: {topic.upvotes}</div>
+        <div className='upvotes'>{index+1}. <span className='votes'>Votes: {topic.upvotes}</span></div>
         <div className='content'>{topic.content}</div>
         <button onClick={this.upvote.bind(this)} className='up'> Upvote</button>
         <button onClick={this.downvote.bind(this)} className='down'> Downvote</button>

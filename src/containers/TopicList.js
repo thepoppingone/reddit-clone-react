@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { upvoteTopic, downvoteTopic } from '../actions/index';
 
-class TopicList extends Component {
+export class TopicList extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ class TopicList extends Component {
       return sortedTopics.slice(0,20).map((t,i) => {
         return (
           <div key={i}>
-            <Topic key={t.key} topic={t} upvoteAction={(topic) => this.props.upvoteTopic(topic)} downvoteAction={(topic) => this.props.downvoteTopic(topic)}/>
+            <Topic key={i} index={i} topic={t} upvoteAction={(topic) => this.props.upvoteTopic(topic)} downvoteAction={(topic) => this.props.downvoteTopic(topic)}/>
           </div>
         )
       });
