@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       list: [],
       isCreatingTopic: false,
+      throwError: false,
       input: '',
     };
   }
@@ -25,19 +26,30 @@ class App extends Component {
   toggleCreateModal(){
     this.setState({
       isCreatingTopic: !this.state.isCreatingTopic,
+      throwError: false,
       input: '',
     });
   }
 
   createTopic(){
-    const topic = {
-      id: this.props.topics.length+1,
-      content: this.state.input,
-      upvotes: 0,
-    };
 
-    this.props.createTopic(topic);
-    this.toggleCreateModal();
+    const { input } = this.state;
+
+    if (input.length > 0 && input.length <= 255) {
+          const topic = {
+            id: this.props.topics.length+1,
+            content: input,
+            upvotes: 0,
+          };
+
+          this.props.createTopic(topic);
+          this.toggleCreateModal();
+    }else {
+      this.setState({
+        throwError: true,
+      })
+    }
+
   }
 
   handleChange(e){
@@ -46,7 +58,7 @@ class App extends Component {
 
   render() {
 
-    const { list, isCreatingTopic, input} = this.state;
+    const { list, isCreatingTopic, input, throwError} = this.state;
     console.log("list", list);
 
     return (
@@ -57,6 +69,10 @@ class App extends Component {
             <input placeholder='Enter new topic content' value={input} onChange={this.handleChange.bind(this)}/>
             <button className='add-button' onClick={this.createTopic.bind(this)}> Add Topic </button>
             <button className='cancel-button' onClick={this.toggleCreateModal.bind(this)}> Cancel Topic </button>
+
+            { throwError ? <div><br/>Please enter some text not more than 255 characters</div> :
+          '' }
+
           </div>
           :
           <div>
