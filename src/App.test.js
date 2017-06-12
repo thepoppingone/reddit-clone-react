@@ -101,4 +101,99 @@ describe('topics reducer', () => {
     ])
   })
 
+  it('should handle creation of topic', () => {
+    expect(
+      reducer(
+        [
+          {
+            id: 1,
+            content: 'topic 1',
+            upvotes: 0,
+          }
+        ],
+        {
+          type: 'NEW_TOPIC',
+          payload: { id: 2, content: 'topic 2', upvotes:0},
+        }
+      )
+    ).toEqual(
+      [
+        {
+          id: 1,
+          content: 'topic 1',
+          upvotes: 0,
+        },
+        {
+          id: 2,
+          content: 'topic 2',
+          upvotes: 0,
+        }
+      ]
+    )
+  })
+
+  it('should upvote the selected topic', () => {
+    expect(
+      reducer(
+        [
+          {
+            id: 1,
+            content: 'topic 1',
+            upvotes: 0,
+          }
+        ],
+        {
+          type: 'TOPIC_UPVOTED',
+          payload: {
+            id: 1,
+            content: 'topic 1',
+            upvotes: 0,
+          }
+        }
+      )
+    ).toEqual(
+      [
+        {
+          id: 1,
+          content: 'topic 1',
+          upvotes: 1,
+        }
+      ]
+    )
+  })
+
+
+    it('should upvote the selected topic', () => {
+      expect(
+        reducer(
+          [
+            {
+              id: 1,
+              content: 'topic 1',
+              upvotes: 0,
+            }
+          ],
+          {
+            type: 'TOPIC_DOWNVOTED',
+            payload: {
+              id: 1,
+              content: 'topic 1',
+              upvotes: 0,
+            }
+          }
+        )
+      ).toEqual(
+        [
+          {
+            id: 1,
+            content: 'topic 1',
+            upvotes: -1,
+          }
+        ]
+      )
+    })
+
+
+
+
 })
