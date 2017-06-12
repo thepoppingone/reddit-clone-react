@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) to allow a **zero configuration**  setup of a React application. 
 
-// Assumes no login required, a default user is always logged in and each action and creation of topic is associated with that default user.
-// Assumes no user is associated with any upvotes or topics and each topic exists as itself
+* Assumes no login required, a default user is always logged in and each action and creation of topic is associated with that default user. *
+*Assumes no user is associated with any upvotes or topics and each topic exists as itself*
 
 # reddit-clone-react
 This is a static application that has an application state maintained by Redux-React with no data persistence. All data is reset on the loading of the page.  This application is also hosted at [Heroku.](https://reddit-clone-react.herokuapp.com)
