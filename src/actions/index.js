@@ -13,7 +13,6 @@ export function downvoteTopic(topic){
 }
 
 export function createTopic(topic){
-  console.log('test create');
   return {
     type: 'NEW_TOPIC',
     payload: topic,
