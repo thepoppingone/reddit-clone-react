@@ -32,9 +32,8 @@ class App extends Component {
   }
 
   createTopic(){
-
+    console.log(this);
     const { input } = this.state;
-
     if (input.length > 0 && input.length <= 255) {
           const topic = {
             id: this.props.topics.length+1,
@@ -56,6 +55,13 @@ class App extends Component {
     this.setState({ input: e.target.value });
   }
 
+  handleKeyPress = (e) => {
+    if(e.key == 'Enter'){
+      console.log(e.key);
+      this.createTopic();
+    }
+  }
+
   render() {
 
     const { list, isCreatingTopic, input, throwError} = this.state;
@@ -66,7 +72,7 @@ class App extends Component {
         <div className='header'> Reddit Sample </div>
         { isCreatingTopic ?
           <div>
-            <input placeholder='Enter new topic content' value={input} onChange={this.handleChange.bind(this)}/>
+            <input placeholder='Enter new topic content' onKeyPress={this.handleKeyPress.bind(this)} value={input} onChange={this.handleChange.bind(this)}/>
             <button className='add-button' onClick={this.createTopic.bind(this)}> Add Topic </button>
             <button className='cancel-button' onClick={this.toggleCreateModal.bind(this)}> Cancel Topic </button>
 
