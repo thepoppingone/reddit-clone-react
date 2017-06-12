@@ -12,7 +12,6 @@ export class App extends Component {
     super();
 
     this.state = {
-      list: [],
       isCreatingTopic: false,
       throwError: false,
       input: '',
@@ -54,8 +53,7 @@ export class App extends Component {
   }
 
   handleKeyPress = (input, e) => {
-    if(e.key == 'Enter'){
-      console.log(e.key);
+    if(e.key === 'Enter'){
       this.createTopic(input);
     }
   }
@@ -70,7 +68,7 @@ export class App extends Component {
 
   render() {
 
-    const { list, isCreatingTopic, input, throwError} = this.state;
+    const { isCreatingTopic, input, throwError} = this.state;
 
     return (
       <div className="App">
