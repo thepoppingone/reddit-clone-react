@@ -20,7 +20,7 @@ class TopicList extends Component {
         return parseFloat(b.upvotes) - parseFloat(a.upvotes);
       });
 
-      return sortedTopics.map((t,i) => {
+      return sortedTopics.slice(0,20).map((t,i) => {
         return (
           <div key={i}>
             <Topic key={t.key} topic={t} upvoteAction={(topic) => this.props.upvoteTopic(topic)} downvoteAction={(topic) => this.props.downvoteTopic(topic)}/>

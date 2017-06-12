@@ -19,29 +19,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.setState({
-      list: this.createSampleTopics(),
-    });
-  }
 
-  createSampleTopics(){
-    const topic1 = {
-      id: 1,
-      content: 1,
-      upvotes: 0,
-    };
-
-    const topic2 = {
-      id: 2,
-      content: 2,
-      upvotes: 0,
-    };
-
-    var array1 = [];
-    array1.push(topic1);
-    array1.push(topic2);
-
-    return array1;
   }
 
   toggleCreateModal(){
@@ -53,7 +31,7 @@ class App extends Component {
 
   createTopic(){
     const topic = {
-      id: 10,
+      id: this.props.topics.length+1,
       content: this.state.input,
       upvotes: 0,
     };
@@ -95,10 +73,17 @@ class App extends Component {
 
 }
 
+function mapStateToProps(state){
+  // Returns the items to the props
+  return {
+    topics: state.topics,
+  };
+}
+
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     createTopic: createTopic,
    }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
