@@ -18,7 +18,8 @@ export class App extends Component {
     };
   }
 
-  toggleCreateModal(){
+  toggleCreateScreen(){
+    // Always reset the input values upon toggle
     this.setState({
       isCreatingTopic: !this.state.isCreatingTopic,
       throwError: false,
@@ -35,7 +36,7 @@ export class App extends Component {
             upvotes: 0,
           };
           this.props.createTopic(topic);
-          this.toggleCreateModal();
+          this.toggleCreateScreen();
     }else {
       this.setState({
         throwError: true,
@@ -44,10 +45,12 @@ export class App extends Component {
 
   }
 
+  // Handles the input's value at any point of time
   handleChange(e){
     this.setState({ input: e.target.value });
   }
 
+  // Allows enter key to trigger create topic function
   handleKeyPress = (input, e) => {
     if(e.key === 'Enter'){
       this.createTopic(input);
@@ -73,15 +76,18 @@ export class App extends Component {
           <div>
             <input autoFocus placeholder='Enter new topic content' onKeyPress={this.handleKeyPress.bind(this, input)} value={input} onChange={this.handleChange.bind(this)}/>
             <button className='add-button' onClick={this.createTopic.bind(this, input)}> Add Topic </button>
-            <button className='cancel-button' onClick={this.toggleCreateModal.bind(this)}> Cancel Topic </button>
+            <button className='cancel-button' onClick={this.toggleCreateScreen.bind(this)}> Cancel Topic </button>
 
-            { throwError ? <div><br/>Please enter some text not more than 255 characters</div> :
-          '' }
+            {
+              throwError ?
+              <div><br/>Please enter some text not more than 255 characters</div>
+              : ''
+            }
 
           </div>
           :
           <div>
-            <button className='create-button' onClick={this.toggleCreateModal.bind(this)}> Create Topic </button>
+            <button className='create-button' onClick={this.toggleCreateScreen.bind(this)}> Create Topic </button>
             <div className='list'>
               <TopicList/>
             </div>
@@ -95,7 +101,6 @@ export class App extends Component {
 }
 
 function mapStateToProps(state){
-  // Returns the items to the props
   return {
     topics: state.topics,
   };

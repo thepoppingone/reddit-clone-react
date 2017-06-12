@@ -13,6 +13,7 @@ export class TopicList extends Component {
     };
   }
 
+  // render the list of items from application state
   renderList(){
     if (this.props.topics.length){
 
@@ -28,7 +29,10 @@ export class TopicList extends Component {
         )
       });
     }else{
-        console.log("no length",this.props.topics);
+      // if topics don't exist show that list is empty and not loaded yet
+        return(
+          <div>No Topics Available.</div>
+        )
     }
   }
 

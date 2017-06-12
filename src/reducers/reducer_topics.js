@@ -4,6 +4,7 @@ const NEW_TOPIC = 'NEW_TOPIC';
 
 export default function(state = null, action){
 
+  // Set initial state to a default set of 18 topics
   if (state === null){
     return [
       { id: 1, content: 'Hong Kong Typhoon', upvotes:0},
@@ -27,6 +28,7 @@ export default function(state = null, action){
     ];
   }else{
 
+  // Other actions will proceed according to the action type
     const newTopicId = action.payload.id
     const updateIndex = state.findIndex((topic => topic.id === newTopicId));
 
@@ -34,7 +36,7 @@ export default function(state = null, action){
       case TOPIC_UPVOTED:
         return state.map((topic, index) => {
           if (index === updateIndex) {
-            // Copy the object before mutating
+
             return Object.assign({}, topic, {
               upvotes: action.payload.upvotes + 1,
             })
@@ -44,7 +46,7 @@ export default function(state = null, action){
       case TOPIC_DOWNVOTED:
         return state.map((topic, index) => {
           if (index === updateIndex) {
-            // Copy the object before mutating
+    
             return Object.assign({}, topic, {
               upvotes: action.payload.upvotes - 1,
             })

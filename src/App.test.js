@@ -24,10 +24,6 @@ test('Check for invalid input of string size 0', () => {
   const wrapper = shallow(
     <App /> );
    expect(wrapper.instance().checkValidInput('')).toEqual(false);
-
-  // node.value = 'giraffe';
-  // ReactTestUtils.Simulate.change(node);
-  // ReactTestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
 });
 
 test('Check for invalid input of string size > 255', () => {
